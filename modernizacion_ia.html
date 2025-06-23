@@ -1,1 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modernización con IA - IBM zDevOps</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Palette: Azules y Grises Neutros para un look profesional y moderno -->
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .nav-link {
+            padding: 0.75rem 1rem;
+            border-radius: 0.375rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-weight: 500;
+        }
+        .nav-link:hover, .nav-link.active {
+            background-color: #DBEAFE; /* Azul claro hover */
+            color: #1D4ED8; /* Azul oscuro texto hover */
+        }
+        .section-title {
+            font-size: 2.25rem; /* 36px */
+            font-weight: 700;
+            color: #1E3A8A; /* Azul oscuro */
+            margin-bottom: 1.5rem; /* 24px */
+            border-bottom: 3px solid #60A5FA; /* Azul medio */
+            padding-bottom: 0.5rem; /* 8px */
+            display: inline-block;
+        }
+        .content-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+        .ai-feature-card {
+            border-top: 4px solid #10B981; /* Verde */
+            background-color: #F0FDF4; /* Verde muy claro */
+        }
+        .phase-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            background-color: #E0E7FF; /* Índigo claro */
+            color: #3730A3; /* Índigo oscuro */
+            margin-bottom: 0.5rem;
+        }
+        .phase-item svg {
+            margin-right: 0.75rem;
+            flex-shrink: 0;
+        }
+        .mobile-menu-button svg {
+            stroke: white;
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800">
 
+    <!-- Encabezado y Navegación -->
+    <header class="bg-blue-700 text-white sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="text-2xl font-bold hover:text-blue-200 transition-colors">
+                    IBM zDevOps
+                </a>
+                <nav class="hidden md:flex space-x-2">
+                    <a href="index.html" class="nav-link hover:bg-blue-500">Visión General</a>
+                    <a href="pilares_herramientas.html" class="nav-link hover:bg-blue-500">Pilares y Herramientas</a>
+                    <a href="estrategia_sinergias.html" class="nav-link hover:bg-blue-500">Estrategia y Sinergias</a>
+                    <a href="modernizacion_ia.html" class="nav-link bg-blue-600 text-white active">Modernización con IA</a>
+                </nav>
+                <div class="md:hidden">
+                    <button id="mobileMenuButton" class="text-white focus:outline-none">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Menú Móvil -->
+        <div id="mobileMenu" class="md:hidden hidden bg-blue-600">
+            <a href="index.html" class="block py-3 px-4 text-white hover:bg-blue-500 transition-colors">Visión General</a>
+            <a href="pilares_herramientas.html" class="block py-3 px-4 text-white hover:bg-blue-500 transition-colors">Pilares y Herramientas</a>
+            <a href="estrategia_sinergias.html" class="block py-3 px-4 text-white hover:bg-blue-500 transition-colors">Estrategia y Sinergias</a>
+            <a href="modernizacion_ia.html" class="block py-3 px-4 text-white hover:bg-blue-500 transition-colors active">Modernización con IA</a>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="container mx-auto p-4 sm:p-6 lg:p-8">
+
+        <!-- Sección: Introducción a la Modernización con IA -->
+        <section id="intro-ia" class="my-12 md:my-16">
+            <div class="content-card p-6 md:p-10">
+                <h2 class="section-title">El Papel Transformador de la IA en la Modernización de z/OS</h2>
+                <p class="text-slate-700 leading-relaxed mb-6">
+                    La Inteligencia Artificial (IA) se está convirtiendo en una fuerza fundamental en la modernización de las aplicaciones y operaciones en IBM z/OS. Las soluciones de IBM infunden IA para abordar desafíos complejos, desde la comprensión y transformación de código heredado hasta la optimización del rendimiento y la predicción proactiva de problemas operativos. Este enfoque no solo acelera la modernización, sino que también mejora la productividad del desarrollador y la resiliencia del sistema.
+                </p>
+                <p class="text-slate-700 leading-relaxed">
+                    La creciente infusión de IA en herramientas como watsonx Code Assistant for Z, la familia OMEGAMON, IntelliMagic Vision e Instana, señala una clara trayectoria hacia operaciones más inteligentes, predictivas y automatizadas en el mainframe.
+                </p>
+            </div>
+        </section>
+
+        <!-- Sección: IBM watsonx Code Assistant for z/OS -->
+        <section id="watsonx-ca" class="my-12 md:my-16">
+            <div class="content-card p-6 md:p-10">
+                <h2 class="section-title">IBM watsonx Code Assistant for z/OS</h2>
+                <p class="text-slate-700 leading-relaxed mb-6">
+                    IBM watsonx Code Assistant for Z representa un avance significativo en la modernización de aplicaciones mainframe, utilizando IA generativa y automatización para mejorar la productividad del desarrollador y acelerar las iniciativas de transformación. Asiste en todo el ciclo de vida de la aplicación, desde la comprensión inicial hasta la transformación y validación.
+                </p>
+                <h3 class="text-xl font-semibold text-blue-700 mb-4">Fases Clave y Capacidades:</h3>
+                <div class="space-y-4">
+                    <div class="phase-item">
+                        <svg class="w-6 h-6 text-indigo-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <div>
+                            <h4 class="font-semibold">Entender (Understand)</h4>
+                            <p class="text-sm">Análisis profundo de aplicaciones existentes (COBOL, PL/I) para crear un "plano de aplicación", documentando el panorama y las relaciones internas.</p>
+                        </div>
+                    </div>
+                    <div class="phase-item">
+                        <svg class="w-6 h-6 text-indigo-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+                        <div>
+                            <h4 class="font-semibold">Explicar (Explain)</h4>
+                            <p class="text-sm">Explicaciones en lenguaje natural de código COBOL, PL/I, REXX o JCL, ayudando a la comprensión y transferencia de conocimiento.</p>
+                        </div>
+                    </div>
+                    <div class="phase-item">
+                        <svg class="w-6 h-6 text-indigo-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 16v-2m8-6H4m16 0l-2.828-2.828m0 5.656L20 12l-2.828 2.828m-11.314 0L4 12l2.828-2.828M12 18a6 6 0 100-12 6 6 0 000 12z"></path></svg>
+                        <div>
+                            <h4 class="font-semibold">Optimizar (Optimize)</h4>
+                            <p class="text-sm">Análisis de código COBOL para identificar ineficiencias de rendimiento y ofrecer recomendaciones de corrección a nivel de línea de código.</p>
+                        </div>
+                    </div>
+                    <div class="phase-item">
+                        <svg class="w-6 h-6 text-indigo-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        <div>
+                            <h4 class="font-semibold">Refactorizar (Refactor)</h4>
+                            <p class="text-sm">Reestructuración de aplicaciones COBOL o PL/I en servicios de negocio más modulares, facilitando la adopción de arquitecturas de microservicios.</p>
+                        </div>
+                    </div>
+                    <div class="phase-item">
+                        <svg class="w-6 h-6 text-indigo-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m-15.357-2a8.001 8.001 0 0015.357 2M9 15h4.581M15 15H9.419"></path></svg>
+                        <div>
+                            <h4 class="font-semibold">Transformar (Transform)</h4>
+                            <p class="text-sm">Uso de IA generativa para transformar código COBOL refactorizado y optimizado en código Java orientado a objetos.</p>
+                        </div>
+                    </div>
+                     <div class="phase-item">
+                        <svg class="w-6 h-6 text-indigo-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <div>
+                            <h4 class="font-semibold">Validar (Validate)</h4>
+                            <p class="text-sm">Confirmación de equivalencia semántica entre el código COBOL original refactorizado y el código Java transformado mediante generación automatizada de pruebas.</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-slate-700 leading-relaxed mt-6">
+                    Watsonx Code Assistant for Z ofrece flexibilidad de despliegue (on-premises o como servicio) y reduce significativamente el esfuerzo manual y las habilidades especializadas requeridas para la modernización.
+                </p>
+            </div>
+        </section>
+
+        <!-- Sección: IA en Monitorización y AIOps -->
+        <section id="ia-monitoring" class="my-12 md:my-16">
+            <div class="content-card p-6 md:p-10">
+                <h2 class="section-title">IA en Monitorización y AIOps</h2>
+                <p class="text-slate-700 leading-relaxed mb-6">
+                    Más allá de la modernización del código, la IA está transformando la forma en que se monitorizan y gestionan las operaciones de TI en z/OS (AIOps). Varias herramientas de IBM incorporan capacidades de IA para proporcionar insights más profundos y proactivos:
+                </p>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="ai-feature-card p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold text-green-700 mb-3">IBM Z OMEGAMON AI Insights</h3>
+                        <p class="text-slate-600">Integrado en IBM Z Monitoring Suite, utiliza algoritmos de Machine Learning para analizar datos recogidos por los agentes OMEGAMON. Detecta y visualiza anomalías de rendimiento, superando las alertas tradicionales basadas en umbrales.</p>
+                    </div>
+                    <div class="ai-feature-card p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold text-green-700 mb-3">IntelliMagic Vision for z/OS</h3>
+                        <p class="text-slate-600">Incorpora "health insights" y detección de anomalías derivada de IA para evaluar proactivamente riesgos de rendimiento. Su profundo conocimiento del dominio z/OS permite identificar problemas antes de que impacten a los usuarios.</p>
+                    </div>
+                    <div class="ai-feature-card p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold text-green-700 mb-3">Instana</h3>
+                        <p class="text-slate-600">Utiliza IA para el descubrimiento automático de componentes de aplicaciones híbridas, mapeo de dependencias y análisis de causa raíz. Proporciona trazabilidad de extremo a extremo y detección proactiva de problemas en entornos complejos.</p>
+                    </div>
+                    <div class="ai-feature-card p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold text-green-700 mb-3">Beneficios de AIOps en z/OS</h3>
+                        <p class="text-slate-600">La aplicación de AIOps en z/OS permite una gestión más proactiva, predictiva y automatizada, reduciendo el tiempo de inactividad, mejorando la eficiencia operativa y liberando al personal para tareas de mayor valor.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección: Visión Futura -->
+        <section id="future-ia" class="my-12 md:my-16">
+            <div class="content-card p-6 md:p-10">
+                <h2 class="section-title">Visión Futura: La IA como Pilar de zDevOps</h2>
+                <p class="text-slate-700 leading-relaxed mb-6">
+                    La infusión de IA en el ecosistema zDevOps de IBM es una tendencia en clara aceleración. A medida que las organizaciones continúan su viaje hacia arquitecturas multicloud híbridas, la capacidad de la IA para gestionar la complejidad, optimizar el rendimiento y automatizar operaciones será cada vez más crítica.
+                </p>
+                <p class="text-slate-700 leading-relaxed">
+                    Podemos esperar ver capacidades de IA aún más sofisticadas integradas en toda la cadena de herramientas de zDevOps, desde la generación y prueba de código asistida por IA hasta la auto-reparación y optimización autónoma de sistemas. Esto posiciona a IBM Z no solo como una plataforma robusta y segura, sino también como una plataforma inteligente y adaptable, lista para los desafíos del futuro digital.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="bg-slate-800 text-slate-300 py-10 mt-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; <span id="currentYear"></span> IBM zDevOps. Todos los derechos reservados.</p>
+            <p class="text-sm mt-2">Información basada en el reporte "Accelerating Application Development on z/OS".</p>
+        </div>
+    </footer>
+
+    <script>
+        // Script para el menú móvil
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+             if (mobileMenu.classList.contains('hidden')) {
+                mobileMenuButton.innerHTML = `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>`;
+            } else {
+                mobileMenuButton.innerHTML = `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>`;
+            }
+        });
+
+        // Script para el año actual en el pie de página
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
