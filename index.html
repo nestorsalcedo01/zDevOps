@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IBM zDevOps: Acelerando el Desarrollo en z/OS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Palette: Azules y Grises Neutros para un look profesional y moderno -->
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .hero-bg { background-color: #1E3A8A; /* Azul oscuro */ }
+        .nav-link {
+            padding: 0.75rem 1rem;
+            border-radius: 0.375rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-weight: 500;
+        }
+        .nav-link:hover, .nav-link.active {
+            background-color: #DBEAFE; /* Azul claro hover */
+            color: #1D4ED8; /* Azul oscuro texto hover */
+        }
+        .content-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+        .section-title {
+            font-size: 2.25rem; /* 36px */
+            font-weight: 700;
+            color: #1E3A8A; /* Azul oscuro */
+            margin-bottom: 1.5rem; /* 24px */
+            border-bottom: 3px solid #60A5FA; /* Azul medio */
+            padding-bottom: 0.5rem; /* 8px */
+            display: inline-block;
+        }
+         .mobile-menu-button svg {
+            stroke: white; /* Color del icono del menú hamburguesa en modo normal */
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800">
+
+    <!-- Encabezado y Navegación -->
+    <header class="bg-blue-700 text-white sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="text-2xl font-bold hover:text-blue-200 transition-colors">
+                    IBM zDevOps
+                </a>
+                <nav class="hidden md:flex space-x-2">
+                    <a href="index.html" class="nav-link bg-blue-600 text-white active">Visión General</a>
+                    <a href="pilares_herramientas.html" class="nav-link hover:bg-blue-500">Pilares y Herramientas</a>
+                    <a href="estrategia_sinergias.html" class="nav-link hover:bg-blue-500">Estrategia y Sinergias</a>
+                    <a href="modernizacion_ia.html" class="nav-link hover:bg-blue-500">Modernización con IA</a>
+                </nav>
+                <div class="md:hidden">
+                    <button id="mobileMenuButton" class="text-white focus:outline-none">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Menú Móvil -->
+        <div id="mobileMenu" class="md:hidden hidden bg-blue-600">
+            <a href="index.html" class="block py-3 px-4 text-white hover:bg-blue-500 transition-colors active">Visión General</a>
+            <a href="pilares_herramientas.html" class="block py-3 px-4 text-white hover:bg-blue-500 transition-colors">Pilares y Herramientas</a>
+            <a href="estrategia_sinergias.html" class="block py-3 px-4 text-white hover:bg-blue-500 transition-colors">Estrategia y Sinergias</a>
+            <a href="modernizacion_ia.html" class="block py-3 px-4 text-white hover:bg-blue-500 transition-colors">Modernización con IA</a>
+        </div>
+    </header>
+
+    <!-- Sección Hero -->
+    <section class="hero-bg text-white py-20 md:py-32">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                Acelerando el Desarrollo de Aplicaciones en z/OS
+            </h1>
+            <p class="text-lg md:text-xl lg:text-2xl mb-10 max-w-3xl mx-auto opacity-90">
+                Descubra la suite integral de herramientas de IBM para transformar y modernizar sus prácticas de desarrollo en la plataforma IBM Z.
+            </p>
+            <a href="pilares_herramientas.html" class="bg-white text-blue-700 font-semibold py-3 px-8 rounded-lg text-lg hover:bg-blue-100 transition-colors shadow-md hover:shadow-xl">
+                Explorar Herramientas
+            </a>
+        </div>
+    </section>
+
+    <!-- Contenido Principal -->
+    <main class="container mx-auto p-4 sm:p-6 lg:p-8">
+        <!-- Sección: Resumen Ejecutivo -->
+        <section id="resumen-ejecutivo" class="my-12 md:my-16">
+            <div class="content-card p-6 md:p-10">
+                <h2 class="section-title">Resumen Ejecutivo</h2>
+                <p class="text-slate-700 leading-relaxed mb-4">
+                    La modernización del desarrollo y la entrega de aplicaciones en la plataforma IBM z/OS es más crítica que nunca. En una era que exige agilidad y capacidad de respuesta sin precedentes, las organizaciones deben evolucionar sus prácticas de mainframe para alinearse con iniciativas DevOps empresariales más amplias. Este sitio explora una suite completa de herramientas de IBM diseñadas para facilitar esta transformación, permitiendo un ecosistema zDevOps robusto.
+                </p>
+                <p class="text-slate-700 leading-relaxed">
+                    La adopción estratégica de herramientas como IBM watsonx Code Assistant for z/OS, la suite IBM Application Delivery Foundation for z/OS (ADFz), IBM Test Accelerator, IBM UrbanCode Deploy (UCD), y las soluciones de monitorización y análisis, aborda el doble desafío de mantener las fortalezas inherentes de z/OS mientras se fomenta la innovación y la velocidad. Este conjunto integrado de herramientas representa un ecosistema holístico para modernizar el ciclo de vida de las aplicaciones z/OS de extremo a extremo, conduciendo a un tiempo de comercialización acelerado, una productividad del desarrollador notablemente mejorada y mejoras sustanciales en la calidad, resiliencia y rendimiento de las aplicaciones.
+                </p>
+            </div>
+        </section>
+
+        <!-- Sección: La Transformación zDevOps -->
+        <section id="transformacion-zdevops" class="my-12 md:my-16">
+            <div class="content-card p-6 md:p-10">
+                <h2 class="section-title">La Transformación zDevOps en IBM z/OS</h2>
+                <p class="text-slate-700 leading-relaxed mb-4">
+                    La adopción de prácticas DevOps en la plataforma IBM z/OS, denominada zDevOps, significa un cambio fundamental en cómo se desarrollan, entregan y gestionan las aplicaciones mainframe. Esta transformación no se trata simplemente de adoptar nuevas herramientas, sino que implica una evolución cultural y procedimental destinada a aumentar la agilidad, la eficiencia y la colaboración.
+                </p>
+                <div class="grid md:grid-cols-2 gap-8 mt-8">
+                    <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                        <h3 class="text-xl font-semibold text-blue-700 mb-3">Principios Fundamentales</h3>
+                        <p class="text-slate-600">Los principios universales de DevOps (CALMS) se aplican de manera única en z/OS, mejorando sus fortalezas inherentes con prácticas modernas. Las canalizaciones CI/CD, IaC y flujos de trabajo colaborativos con Git son clave.</p>
+                    </div>
+                    <div class="bg-green-50 p-6 rounded-lg border border-green-200">
+                        <h3 class="text-xl font-semibold text-green-700 mb-3">Beneficios Clave</h3>
+                        <p class="text-slate-600">Aceleración del tiempo de comercialización, mejora de la productividad del desarrollador (ganancias promedio del 20%), mayor calidad y estabilidad de las aplicaciones, y reducción del riesgo operativo.</p>
+                    </div>
+                </div>
+                 <div class="mt-8 text-center">
+                    <a href="pilares_herramientas.html#pilares" class="text-blue-600 hover:text-blue-800 font-semibold text-lg transition-colors">
+                        Conozca los Pilares de zDevOps &rarr;
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección: Programa de Aceleración DevOps de IBM Z (DAP) -->
+        <section id="programa-dap" class="my-12 md:my-16">
+            <div class="content-card p-6 md:p-10">
+                <h2 class="section-title">Guía y Programa de Aceleración (DAP)</h2>
+                <p class="text-slate-700 leading-relaxed mb-4">
+                    IBM proporciona una metodología estructurada y programas de soporte dedicados. La Guía IBM Z DevOps traza un viaje por fases: Evaluar, Aprender, Planificar, Transformar, Usar e Iterar.
+                </p>
+                <p class="text-slate-700 leading-relaxed mb-6">
+                    El Programa de Aceleración DevOps de IBM Z (DAP) es un programa sin cargo que se asocia con los clientes a través de etapas críticas:
+                </p>
+                <ul class="list-disc list-inside space-y-3 text-slate-700 pl-4">
+                    <li class="flex items-start">
+                        <svg class="w-5 h-5 text-blue-500 mr-2 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                        <span><strong class="font-semibold">Evaluación del Flujo de Valor:</strong> Análisis de procesos para identificar cuellos de botella.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="w-5 h-5 text-blue-500 mr-2 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                        <span><strong class="font-semibold">Capacitación:</strong> Dotar a los equipos de habilidades en herramientas y prácticas modernas.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="w-5 h-5 text-blue-500 mr-2 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                        <span><strong class="font-semibold">Despliegue:</strong> Asistencia en la implementación y configuración de la cadena de herramientas zDevOps.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="w-5 h-5 text-blue-500 mr-2 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                        <span><strong class="font-semibold">Adopción:</strong> Guiar a las organizaciones para utilizar eficazmente las nuevas herramientas y procesos.</span>
+                    </li>
+                </ul>
+                 <div class="mt-8 text-center">
+                    <a href="estrategia_sinergias.html#estrategia" class="text-blue-600 hover:text-blue-800 font-semibold text-lg transition-colors">
+                        Descubra la Adopción Estratégica &rarr;
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="bg-slate-800 text-slate-300 py-10 mt-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; <span id="currentYear"></span> IBM zDevOps. Todos los derechos reservados.</p>
+            <p class="text-sm mt-2">"Accelerating Application Development on z/OS".</p>
+        </div>
+    </footer>
+
+    <script>
+        // Script para el menú móvil
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            // Cambiar icono de hamburguesa a X y viceversa
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenuButton.innerHTML = `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>`;
+            } else {
+                mobileMenuButton.innerHTML = `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>`;
+            }
+        });
+
+        // Script para el año actual en el pie de página
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
