@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilares y Herramientas - IBM zDevOps</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Palette: Azules y Grises Neutros para un look profesional y moderno -->
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .nav-link {
+            padding: 0.75rem 1rem;
+            border-radius: 0.375rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-weight: 500;
+        }
+        .nav-link:hover, .nav-link.active {
+            background-color: #DBEAFE; /* Azul claro hover */
+            color: #1D4ED8; /* Azul oscuro texto hover */
+        }
+        .section-title {
+            font-size: 2.25rem; /* 36px */
+            font-weight: 700;
+            color: #1E3A8A; /* Azul oscuro */
+            margin-bottom: 1.5rem; /* 24px */
+            border-bottom: 3px solid #60A5FA; /* Azul medio */
+            padding-bottom: 0.5rem; /* 8px */
+            display: inline-block;
+        }
+        .pillar-card, .tool-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden; /* Para que el borde coloreado se vea bien */
+        }
+        .pillar-card:hover, .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+        .pillar-card { border-left: 5px solid #2563EB; /* Azul principal */ }
+        .tool-card { border-left: 5px solid #10B981; /* Verde para herramientas */ }
+        .modal {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.6); display: none; align-items: center; justify-content: center;
+            z-index: 1000; padding: 1rem;
+        }
+        .modal-content {
+            background-color: white; padding: 2rem; border-radius: 0.5rem;
+            max-height: 90vh; overflow-y: auto; width: 100%;
+            max-width: 3xl; /* Para que no sea demasiado ancho */
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+        }
+        .mobile-menu-button svg {
+            stroke: white;
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800">
+
+    <!-- Encabezado y Navegación -->
+    <header class="bg-blue-700 text-white sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="text-2xl font-bold hover:text-blue-200 transition-colors">
+                    IBM zDevOps
+                </a>
+                <nav class="hidden md:flex space-x-2">
+                    <a href="index.html" class="nav-link hover:bg-blue-500">Visión General</a>
+                    <a href="pilares_herramientas.html" class="nav-link bg-blue-600 text-white active">Pilares y Herramientas</a>
+                    <a href="estrategia_sinergias.html" class="nav-link hover:bg-blue-500">Estrategia y Sinergias</a>
+                    <a href="modernizacion_ia.html" class="nav-link hover:bg-blue-500">Modernización con IA</a>
+                </nav>
+                <div class="md:hidden">
+                    <button id="mobileMenuButton" class="text-white focus:outline-none">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Menú Móvil -->
+        <div id="mobileMenu" class="md:hidden hidden bg-blue-600">
+            <a href="index.html" class="block py-3 px-4 text-white hover:bg-blue-500 transition-colors">Visión General</a>
+            <a href="pilares_herramientas.html" class="block py-3 px-4 text-white hover:bg-blue-500 transition-colors active">Pilares y Herramientas</a>
+            <a href="estrategia_sinergias.html" class="block py-3 px-4 text-white hover:bg-blue-500 transition-colors">Estrategia y Sinergias</a>
+            <a href="modernizacion_ia.html" class="block py-3 px-4 text-white hover:bg-blue-500 transition-colors">Modernización con IA</a>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="container mx-auto p-4 sm:p-6 lg:p-8">
+
+        <!-- Sección Pilares de zDevOps -->
+        <section id="pilares" class="my-12 md:my-16">
+            <h2 class="section-title text-center">Pilares Fundamentales de zDevOps</h2>
+            <p class="text-center text-slate-600 mb-12 max-w-2xl mx-auto">
+                La estrategia zDevOps de IBM se sustenta en cuatro pilares clave, cada uno abordando aspectos cruciales del ciclo de vida de desarrollo y operaciones en z/OS.
+            </p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Pilar 1 -->
+                <div class="pillar-card p-6">
+                    <div class="flex items-center text-blue-600 mb-3">
+                        <svg class="w-8 h-8 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        <h3 class="text-xl font-semibold">Desarrollo Moderno, Modernización y Análisis</h3>
+                    </div>
+                    <p class="text-slate-600 text-sm">Capacitar a los desarrolladores con herramientas modernas para crear, mantener y entender aplicaciones mainframe complejas, facilitando la codificación eficiente y la modernización impulsada por IA.</p>
+                </div>
+                <!-- Pilar 2 -->
+                <div class="pillar-card p-6">
+                     <div class="flex items-center text-blue-600 mb-3">
+                        <svg class="w-8 h-8 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m0 6H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <h3 class="text-xl font-semibold">Pruebas Continuas y Aseguramiento de Calidad</h3>
+                    </div>
+                    <p class="text-slate-600 text-sm">Implementar pruebas continuas y un robusto aseguramiento de calidad para entregar software rápidamente, de forma fiable y con alta calidad, utilizando entornos de prueba flexibles y automatización.</p>
+                </div>
+                <!-- Pilar 3 -->
+                <div class="pillar-card p-6">
+                     <div class="flex items-center text-blue-600 mb-3">
+                        <svg class="w-8 h-8 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        <h3 class="text-xl font-semibold">Despliegue Automatizado y Gestión de Releases</h3>
+                    </div>
+                    <p class="text-slate-600 text-sm">Automatizar el despliegue de aplicaciones y la gestión de releases para lograr velocidad y fiabilidad, reduciendo errores manuales y cuellos de botella en la entrega.</p>
+                </div>
+                <!-- Pilar 4 -->
+                <div class="pillar-card p-6">
+                     <div class="flex items-center text-blue-600 mb-3">
+                        <svg class="w-8 h-8 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        <h3 class="text-xl font-semibold">Monitorización Integral, Observabilidad y AIOps</h3>
+                    </div>
+                    <p class="text-slate-600 text-sm">Mantener la estabilidad, el rendimiento y la disponibilidad con monitorización efectiva, observabilidad profunda y la aplicación de IA para Operaciones de TI (AIOps).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Herramientas -->
+        <section id="herramientas" class="my-12 md:my-16">
+            <h2 class="section-title text-center">Herramientas Clave del Ecosistema zDevOps</h2>
+            <p class="text-center text-slate-600 mb-12 max-w-2xl mx-auto">
+                Explore las herramientas individuales que componen la suite zDevOps de IBM, diseñadas para trabajar sinérgicamente. Haga clic en una herramienta para más detalles.
+            </p>
+
+            <div class="mb-8 flex flex-wrap justify-center gap-4">
+                <label for="pillarFilter" class="sr-only">Filtrar por Pilar:</label>
+                <select id="pillarFilter" class="bg-white border border-slate-300 text-slate-700 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5">
+                    <option selected value="all">Todos los Pilares</option>
+                    <option value="pilar1">Desarrollo y Modernización</option>
+                    <option value="pilar2">Pruebas y Calidad</option>
+                    <option value="pilar3">Despliegue y Releases</option>
+                    <option value="pilar4">Monitorización y AIOps</option>
+                </select>
+            </div>
+
+            <div id="toolList" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Las tarjetas de herramientas se insertarán aquí por JS -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal para detalles de la herramienta -->
+    <div id="toolModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-content">
+            <div class="flex justify-between items-center mb-6">
+                <h3 id="modalTitle" class="text-2xl font-bold text-blue-700">Nombre de Herramienta</h3>
+                <button id="closeModalButton" class="text-slate-500 hover:text-slate-800 text-3xl font-light" aria-label="Cerrar modal">&times;</button>
+            </div>
+            <div id="modalPillar" class="text-sm font-medium text-blue-600 mb-2"></div>
+            <div id="modalDescription" class="text-slate-700 leading-relaxed mb-4"></div>
+            <h4 class="text-lg font-semibold text-slate-800 mb-2">Funcionalidades Clave:</h4>
+            <ul id="modalFeatures" class="list-disc list-inside space-y-1 text-slate-600"></ul>
+            <div id="modalExtraContent" class="mt-4 text-sm text-slate-600"></div>
+        </div>
+    </div>
+
+
+    <!-- Pie de página -->
+    <footer class="bg-slate-800 text-slate-300 py-10 mt-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; <span id="currentYear"></span> IBM zDevOps. Todos los derechos reservados.</p>
+            <p class="text-sm mt-2">Información basada en el reporte "Accelerating Application Development on z/OS".</p>
+        </div>
+    </footer>
+
+    <script>
+        // Datos de las herramientas (extraídos y simplificados del documento)
+        const toolsData = [
+            // Pilar 1: Desarrollo Moderno, Modernización y Análisis
+            {
+                id: "idz", name: "IBM Developer for z/OS EE (IDz EE)", pillar: "pilar1",
+                summary: "IDE moderno (Eclipse, VS Code) para desarrollo COBOL, PL/I, HLASM, etc., con depuración avanzada e integración SCM/Build (DBB).",
+                features: ["Múltiples IDEs (Eclipse, VS Code con Z Open Editor)", "Soporte para COBOL, PL/I, HLASM, REXX, JCL, Java", "Depuración avanzada (IBM Debug for z/OS)", "Integración con Git y DBB", "Herramientas de revisión de código y métricas"]
+            },
+            {
+                id: "fileManager", name: "IBM File Manager for z/OS", pillar: "pilar1",
+                summary: "Acceso, visualización, edición y gestión de datos z/OS (QSAM, VSAM, MQ, CICS). Formateo basado en plantillas (copybooks). Extensión VS Code disponible.",
+                features: ["Soporte para QSAM, VSAM, colas MQ, archivos CICS", "Template Workbench para formateo basado en copybooks", "Interfaz interactiva y extensión VS Code"]
+            },
+            {
+                id: "watsonxCodeAssistant", name: "IBM watsonx Code Assistant for z/OS", pillar: "pilar1",
+                summary: "IA generativa para entender, explicar, optimizar, refactorizar (COBOL/PL/I a servicios) y transformar (COBOL a Java) aplicaciones mainframe. Incluye validación.",
+                features: ["Fases: Entender, Explicar, Optimizar, Refactorizar, Transformar, Validar", "Análisis profundo y generación de 'application blueprint'", "Explicaciones en lenguaje natural", "Optimización de código COBOL", "Transformación COBOL a Java con IA", "Validación semántica automatizada"],
+                extraContent: "Soporta despliegue on-premises (Cloud Pak for Data) o como servicio (IBM Cloud)."
+            },
+            // Pilar 2: Pruebas Continuas y Aseguramiento de Calidad
+            {
+                id: "testAccelerator", name: "IBM Test Accelerator for Z", pillar: "pilar2",
+                summary: "Entornos de prueba z/OS virtualizados/emulados bajo demanda en Linux (x86-64, s390x). Automatización de pruebas de integración (ITB con Galasa). Pruebas tempranas (unitarias/integración).",
+                features: ["Entornos z/OS bajo demanda en Linux", "Integration Test Builder (ITB) para pruebas Galasa", "Dynamic Test Engine para depuración y cobertura", "Soporte para pruebas unitarias/integración tempranas (CICS, COBOL, IMS)"]
+            },
+            {
+                id: "faultAnalyzer", name: "IBM Fault Analyzer for z/OS", pillar: "pilar2",
+                summary: "Análisis rápido y eficiente de ABENDs. Recolección de información en tiempo real, informes concisos. Soporte para COBOL, PL/I, Java, Assembler y subsistemas (Db2, IMS, CICS). Interfaces ISPF, Eclipse, Web y VS Code.",
+                features: ["Recolección automática de información de ABEND", "Informes de análisis concisos", "Análisis en tiempo real, interactivo o batch", "Amplio soporte de lenguajes y subsistemas", "Múltiples interfaces (incluyendo VS Code)"]
+            },
+            {
+                id: "apa", name: "IBM Application Performance Analyzer (APA)", pillar: "pilar2",
+                summary: "Medición no intrusiva del rendimiento de aplicaciones. Mapeo de datos de rendimiento a código fuente (COBOL, PL/I, ASM, Java) para identificar cuellos de botella. Informes interactivos.",
+                features: ["Muestreo estadístico de bajo impacto", "Mapeo de rendimiento al código fuente", "Soporte COBOL, PL/I, Assembler, C/C++, Java", "Informes para CPU, esperas, métricas de subsistemas"]
+            },
+             // Pilar 3: Despliegue Automatizado y Gestión de Releases
+            {
+                id: "ucd", name: "IBM UrbanCode Deploy (UCD)", pillar: "pilar3",
+                summary: "Automatización de despliegues de aplicaciones, BBDD y configuraciones en z/OS y otros entornos. Modelo de componentes, procesos visuales. Plug-in 'z/OS Utility'.",
+                features: ["Automatización de despliegues multiplataforma", "Modelo visual de componentes y procesos", "Plug-in 'z/OS Utility' para tareas z/OS (Submit Job, Deploy Data Sets)", "Soporte para rollback y gestión de versiones", "Integración CI/CD"]
+            },
+            // Pilar 4: Monitorización Integral, Observabilidad y AIOps
+            {
+                id: "zMonitoringSuite", name: "IBM Z Monitoring Suite (OMEGAMONs)", pillar: "pilar4",
+                summary: "Monitorización en tiempo real e histórica de infraestructura z/OS y subsistemas (CICS, IMS, Db2). Agentes OMEGAMON, OMEGAMON AI Insights para anomalías. OMEGAMON Data Provider para exportar datos.",
+                features: ["Agentes OMEGAMON para z/OS, redes, CICS, IMS, Db2, almacenamiento", "Interfaces unificadas (TEP, e3270UI)", "OMEGAMON AI Insights para detección de anomalías con ML", "OMEGAMON Data Provider para integración con Splunk, Elastic, etc."]
+            },
+            {
+                id: "zpca", name: "IBM Z Performance and Capacity Analytics (zPCA)", pillar: "pilar4",
+                summary: "Análisis de tendencias de rendimiento a largo plazo, planificación de capacidad y gestión de costes. Dashboards Cognos, streaming a Splunk/Elastic. Predicción, análisis 'what-if', gestión Tailored Fit Pricing.",
+                features: ["Procesamiento zIIP-eligible", "Dashboards Cognos y streaming de datos", "Predicción de necesidades de recursos y análisis 'what-if'", "Gestión de consumo MSU para Tailored Fit Pricing", "Scorecards 'healthmetric'"]
+            },
+            {
+                id: "zLogAnalytics", name: "IBM Z Log Analytics", pillar: "pilar4",
+                summary: "Centraliza y analiza logs operativos y datos de z/OS (SYSLOG, JOBLOGs, SMF) en Splunk, Elastic o Z Data Analytics Platform. Z Common Data Provider para recolección.",
+                features: ["Streaming de datos operativos de Z a plataformas de análisis", "Flexibilidad de plataforma (Splunk, Elastic, Z Data Analytics Platform)", "Z Common Data Provider", "Insights operativos predefinidos"]
+            },
+            {
+                id: "intelliMagic", name: "IntelliMagic Vision for z/OS", pillar: "pilar4",
+                summary: "Evalúa proactivamente riesgos de rendimiento y salud del sistema z/OS. 'Built-in health insights', detección de anomalías con IA. Informes predefinidos, GUI intuitiva. Módulos MQ, IMS.",
+                features: ["'Built-in health insights' con calificación de métricas", "Detección de anomalías derivada de IA", "Miles de informes predefinidos y GUI intuitiva", "Análisis profundo específico para MQ, IMS", "Modelo opcional AIOps en la nube"]
+            },
+            {
+                id: "instana", name: "Instana", pillar: "pilar4",
+                summary: "Observabilidad de extremo a extremo para aplicaciones híbridas, incluyendo interacciones z/OS. Descubrimiento y mapeo automático, trazado de transacciones, IA para causa raíz. Integración con OMEGAMON Data Provider.",
+                features: ["Descubrimiento y mapeo automático de componentes híbridos", "Trazado automatizado de cada transacción", "Análisis de causa raíz y detección de anomalías con IA", "Integración con OMEGAMON Data Provider para métricas z/OS"]
+            }
+        ];
+
+        const toolListContainer = document.getElementById('toolList');
+        const pillarFilter = document.getElementById('pillarFilter');
+        const modal = document.getElementById('toolModal');
+        const closeModalButton = document.getElementById('closeModalButton');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalPillar = document.getElementById('modalPillar');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalFeatures = document.getElementById('modalFeatures');
+        const modalExtraContent = document.getElementById('modalExtraContent');
+
+
+        function getPillarName(pillarId) {
+            switch(pillarId) {
+                case 'pilar1': return 'Pilar: Desarrollo Moderno, Modernización y Análisis';
+                case 'pilar2': return 'Pilar: Pruebas Continuas y Aseguramiento de Calidad';
+                case 'pilar3': return 'Pilar: Despliegue Automatizado y Gestión de Releases';
+                case 'pilar4': return 'Pilar: Monitorización Integral, Observabilidad y AIOps';
+                default: return 'Pilar Desconocido';
+            }
+        }
+        
+        function displayTools(toolsToDisplay) {
+            toolListContainer.innerHTML = '';
+            toolsToDisplay.forEach(tool => {
+                const card = document.createElement('div');
+                card.className = 'tool-card p-6 flex flex-col justify-between cursor-pointer';
+                card.innerHTML = `
+                    <div>
+                        <h3 class="text-xl font-semibold text-green-700 mb-2">${tool.name}</h3>
+                        <p class="text-xs font-medium text-gray-500 mb-3 uppercase tracking-wider">${getPillarName(tool.pillar).replace('Pilar: ', '')}</p>
+                        <p class="text-slate-600 text-sm mb-4">${tool.summary}</p>
+                    </div>
+                    <button class="mt-auto bg-blue-500 text-white text-sm font-medium py-2 px-4 rounded-md hover:bg-blue-600 transition-colors self-start learn-more-btn">
+                        Saber más
+                    </button>
+                `;
+                card.querySelector('.learn-more-btn').addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevenir que el click en el botón active el click en la card si es diferente
+                    showToolModal(tool);
+                });
+                card.addEventListener('click', () => showToolModal(tool)); // Para hacer toda la card clickeable
+                toolListContainer.appendChild(card);
+            });
+        }
+
+        function showToolModal(tool) {
+            modalTitle.textContent = tool.name;
+            modalPillar.textContent = getPillarName(tool.pillar);
+            modalDescription.innerHTML = tool.summary; // Usar summary o una descripción más larga si estuviera disponible y se quisiera
+            
+            modalFeatures.innerHTML = '';
+            if (tool.features && tool.features.length > 0) {
+                tool.features.forEach(featureText => {
+                    const li = document.createElement('li');
+                    li.textContent = featureText;
+                    modalFeatures.appendChild(li);
+                });
+            } else {
+                 modalFeatures.innerHTML = '<li>Detalles de características no disponibles.</li>';
+            }
+
+            if (tool.extraContent) {
+                modalExtraContent.innerHTML = `<p class="mt-3 pt-3 border-t border-slate-200">${tool.extraContent}</p>`;
+                modalExtraContent.style.display = 'block';
+            } else {
+                modalExtraContent.innerHTML = '';
+                modalExtraContent.style.display = 'none';
+            }
+            
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Evitar scroll del fondo
+        }
+
+        closeModalButton.addEventListener('click', () => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && modal.style.display === 'flex') {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        pillarFilter.addEventListener('change', (event) => {
+            const selectedPillar = event.target.value;
+            if (selectedPillar === 'all') {
+                displayTools(toolsData);
+            } else {
+                const filteredTools = toolsData.filter(tool => tool.pillar === selectedPillar);
+                displayTools(filteredTools);
+            }
+        });
+
+        // Script para el menú móvil
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+             if (mobileMenu.classList.contains('hidden')) {
+                mobileMenuButton.innerHTML = `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>`;
+            } else {
+                mobileMenuButton.innerHTML = `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>`;
+            }
+        });
+        
+        // Script para el año actual en el pie de página
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Carga inicial de todas las herramientas
+        displayTools(toolsData);
+    </script>
+</body>
+</html>
